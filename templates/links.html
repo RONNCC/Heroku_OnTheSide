@@ -3,6 +3,7 @@
 <head>
   <script type="text/css">
  li.dropdown { color: navy;}
+#main_container {margin: auto}
   </script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <link href="../static/css/learnist.css" media="all" rel="stylesheet" type="text/css" />
@@ -50,13 +51,13 @@ var links =
   function urlize(a){return a.length>4 ? ( (a.substr(0,4)!="http" && a.substr(0,3)=="www") ? "http://"+a:a) : a;}
   String.prototype.cap = function() {return this.charAt(0).toUpperCase() + this.slice(1);} 
 
-  linkstr+="<p><ul>";
+  linkstr+="<div id="main_container"><p><ul>";
   for (var i = 0; i < links.length; i++) {
          linkstr += (!Array.isArray(links[i][1])) ? ("<li><a href=\"" + urlize(links[i][1]) + "\">" + links[i][0].cap() + "</a></li>") : (links[i][1].length != 1) ? "<li class=\"dropdown\">" + links[i][0] + "<ul style=\"display:none\">" + [""].concat(links[i][1]).reduce(function (p, m) {
           return p + "<li><a href=\"" + urlize(m) + "\">" + m + "</a></li>";
       }) + "</ul></li>" : "<br/>unparsable array:</br>>></br>" + ">> " + links[i] + "<br/>>> ";
   }
-  linkstr+=("</ul></p>");
+  linkstr+=("</ul></p></div>");
   document.write(linkstr);
 </script>
 </head>
