@@ -1,68 +1,75 @@
-
-<html><head>
-  <style type="text/css">
- li.dropdown { color: navy;}
-  </style>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<link href="../static/css/learnist.css" media="all" rel="stylesheet" type="text/css" />
-<script type="text/javascript">
-// yeah the styling in the array is sort of weird - but it looks nice :/   
-var linkstr=""                                        
-var links = 
-    [
-        ['skimfeed','http://www.skimfeed.com' ],
-        ['Hacker News','http://hckrnews.com/' ],
-        ['Wired','www.wired.com' ],
-        ['Quora',
-            [   
-                'www.quora.com/What-are-some-useful-technical-skills-I-can-learn-within-a-day',
-                'www.quora.com/Programmers/What-skills-do-self-taught-programmers-commonly-lack',
-            ]
-        ],
-        ['Reddit',
-                [
-                    'www.reddit.com/r/funny',
-                    'www.reddit.com/r/science',
-                    'www.reddit.com/r/CompSci',
-                    'www.reddit.com/r/machinelearning',
-                ]
-        ],
-        ['Inbound','www.inbound.org'],
-        ['The Economist', 'www.economist.com'],
-        ['Tech Review', 'www.technologyreview.com'],
-        ['Google Reader', 'www.reader.google.com'],
-        ['XKCD', 'www.xkcd.com'],
-        ['The Oatmeal', 'www.theoatmeal.com'],
-        ['Techmeme', 'www.techmeme.com'],
-        ['Pinboard - Popular','http://pinboard.in/popular/'],
-        ['NYTimes','www.nytimes.com'],
-        ['BBC','www.bbc.co.uk'],
-        ['Fox','www.foxnews.com'],
-        ['CNN','www.cnn.com'],
-        ['Stack Exchange', 'www.stackexchange.com'],
-        ['BGR','www.bgr.com'],
-        ['Engadget','www.engadget.com'],
-        ['The Next Web','www.thenextweb.com'],
-    ];
-
-
-  function urlize(a){return a.length>4 ? ( (a.substr(0,4)!="http" && a.substr(0,3)=="www") ? "http://"+a:a) : a;}
-  String.prototype.cap = function() {return this.charAt(0).toUpperCase() + this.slice(1);} 
-
-  linkstr+="<div id=\"container\"><p><ul>";
-  for (var i = 0; i < links.length; i++) {
-         linkstr += (!Array.isArray(links[i][1])) ? ("<li><a href=\"" + urlize(links[i][1]) + "\">" + links[i][0].cap() + "</a></li>") : (links[i][1].length != 1) ? "<li class=\"dropdown\">" + links[i][0] + "<ul style=\"display:none\">" + [""].concat(links[i][1]).reduce(function (p, m) {
-          return p + "<li><a href=\"" + urlize(m) + "\">" + m + "</a></li>";
-      }) + "</ul></li>" : "<br/>unparsable array:</br>>></br>" + ">> " + links[i] + "<br/>>> ";
-  }
-    linkstr+=("</ul></p></div>");
-  document.write(linkstr);
-</script>
-</head>
-<body>
-    <div id="content">
-    </div>
-    <div id="scriptcontainer">
-    </div>
-</body>
-</html>
+  
+  <html><head>
+    <style type="text/css">
+   li.dropdown { color: navy;}
+   #container {margin: auto;}
+    </style>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <link href="../static/css/learnist.css" media="all" rel="stylesheet" type="text/css" />
+  <script type="text/javascript">
+  // yeah the styling in the array is sort of weird - but it looks nice :/   
+  var linkstr=""                                        
+  var links = 
+      [
+          ['skimfeed','http://www.skimfeed.com' ],
+          ['Hacker News','http://hckrnews.com/' ],
+          ['Wired','www.wired.com' ],
+          ['Quora',
+              [   
+                  'www.quora.com/What-are-some-useful-technical-skills-I-can-learn-within-a-day',
+                  'www.quora.com/Programmers/What-skills-do-self-taught-programmers-commonly-lack',
+              ]
+          ],
+          ['Reddit',
+                  [
+                      'www.reddit.com/r/funny',
+                      'www.reddit.com/r/science',
+                      'www.reddit.com/r/CompSci',
+                      'www.reddit.com/r/machinelearning',
+                  ]
+          ],
+          ['Inbound','www.inbound.org'],
+          ['The Economist', 'www.economist.com'],
+          ['Tech Review', 'www.technologyreview.com'],
+          ['Google Reader', 'www.reader.google.com'],
+          ['XKCD', 'www.xkcd.com'],
+          ['The Oatmeal', 'www.theoatmeal.com'],
+          ['Techmeme', 'www.techmeme.com'],
+          ['Pinboard - Popular','http://pinboard.in/popular/'],
+          ['NYTimes','www.nytimes.com'],
+          ['BBC','www.bbc.co.uk'],
+          ['Fox','www.foxnews.com'],
+          ['CNN','www.cnn.com'],
+          ['Stack Exchange', 'www.stackexchange.com'],
+          ['BGR','www.bgr.com'],
+          ['Engadget','www.engadget.com'],
+          ['The Next Web','www.thenextweb.com'],
+      ];
+  
+  
+    function urlize(a){return a.length>4 ? ( (a.substr(0,4)!="http" && a.substr(0,3)=="www") ? "http://"+a:a) : a;}
+    String.prototype.cap = function() {return this.charAt(0).toUpperCase() + this.slice(1);} 
+  
+    linkstr+="<div id=\"container\"><p><ul>";
+    for (var i = 0; i < links.length; i++) {
+           linkstr += (!Array.isArray(links[i][1])) ? ("<li><a href=\"" + urlize(links[i][1]) + "\">" + links[i][0].cap() + "</a></li>") : (links[i][1].length != 1) ? "<li class=\"dropdown\">" + links[i][0] + "<ul style=\"display:none\">" + [""].concat(links[i][1]).reduce(function (p, m) {
+            return p + "<li><a href=\"" + urlize(m) + "\">" + m + "</a></li>";
+        }) + "</ul></li>" : "<br/>unparsable array:</br>>></br>" + ">> " + links[i] + "<br/>>> ";
+    }
+      linkstr+=("</ul></p></div>");
+    document.write(linkstr);
+    
+    $('.dropdown').hover(function() {
+   $('ul', $(this)).show('slow');
+}, function() {
+   $('ul', $(this)).hide('slow');
+});
+  </script>
+  </head>
+  <body>
+      <div id="content">
+      </div>
+      <div id="scriptcontainer">
+      </div>
+  </body>
+  </html>
