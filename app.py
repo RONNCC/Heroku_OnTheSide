@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template,send_from_directory
 
 app = Flask(__name__)
 
@@ -15,15 +15,15 @@ def dinosaur():
 def links():
 	return render_template('links.html')
 
-#@app.route('/css/<path:fnc>')
+#app.route('/css/<path:fnc>')
 def css_static(fn):
 	return send_from_directory('/css/',fnc)
 
-#@app.route('/static/<path:fns>')
+@app.route('/static/<path:fns>')
 def static(fn):
 	return send_from_directory('/static/',fns)
 
-#@app.route('/js/<path:fnj>')
+@app.route('/js/<path:fnj>')
 def js_static(fn):
 	return send_from_directory(app.config['JS_STATIC'],fnj)
 
