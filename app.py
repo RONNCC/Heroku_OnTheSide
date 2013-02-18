@@ -16,15 +16,15 @@ def links():
 	return render_template('links.html')
 
 #@app.route('/css/<path:fnc>')
-def css_static(fn):
+def css_static(fnc):
 	return send_from_directory('/css/',fnc)
 
 #@app.route('/static/<path:fns>')
-def static(fn):
+def static(fns):
 	return send_from_directory('/static/',fns)
 
 #@app.route('/js/<path:fnj>')
-def js_static(fn):
+def js_static(fnj):
 	return send_from_directory(app.config['JS_STATIC'],fnj)
 
 
