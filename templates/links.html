@@ -58,7 +58,7 @@
     linkstr+="<div id=\"container\"><p><ul>";
     for (var i = 0; i < links.length; i++) {
            linkstr += (!Array.isArray(links[i][1])) ? ("<li><a href=\"" + urlize(links[i][1]) + "\">" + links[i][0].cap() + "</a></li>") : (links[i][1].length != 1) ? "<li class=\"dropdown draggable \" id=\"draggable\">" + links[i][0] + "<ul style=\"display:none\">" + [""].concat(links[i][1]).reduce(function (p, m) {
-            return p + "<li><a href=\"" + urlize(m) + "\">" + m + "</a></li>";
+            return p + "<li class=\"draggable\"><a href=\"" + urlize(m) + "\">" + m + "</a></li>";
         }) + "</ul></li>" : "<br/>unparsable array:</br>>></br>" + ">> " + links[i] + "<br/>>> ";
     }
       linkstr+=("</ul></p></div>");
