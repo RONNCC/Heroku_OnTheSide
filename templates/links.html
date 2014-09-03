@@ -2,15 +2,26 @@
   <html><head>
     <style type="text/css">
    li.dropdown { color: navy;}
+   li.draggable { }
    #container {margin-left: 3%;}
     </style>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+ 
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+
   <link href="../static/css/learnist.css" media="all" rel="stylesheet" type="text/css" />
   <script type="text/javascript">
   // yeah the styling in the array is sort of weird - but it looks nice :/   
   var linkstr=""                                        
   var links = 
       [
+
+          ['Javascript-related',
+            [
+            'www.3site.eu/jstests/jhp',
+            'emberjs.com',
+            ]
+          ],
           ['skimfeed','http://www.skimfeed.com' ],
           ['Hacker News','http://hckrnews.com/' ],
           ['Wired','www.wired.com' ],
@@ -44,6 +55,7 @@
           ['BGR','www.bgr.com'],
           ['Engadget','www.engadget.com'],
           ['The Next Web','www.thenextweb.com'],
+          ['Fuduntu','www.fuduntu.org/forum/'],
       ];
   
   
@@ -52,8 +64,8 @@
   
     linkstr+="<div id=\"container\"><p><ul>";
     for (var i = 0; i < links.length; i++) {
-           linkstr += (!Array.isArray(links[i][1])) ? ("<li><a href=\"" + urlize(links[i][1]) + "\">" + links[i][0].cap() + "</a></li>") : (links[i][1].length != 1) ? "<li class=\"dropdown\">" + links[i][0] + "<ul style=\"display:none\">" + [""].concat(links[i][1]).reduce(function (p, m) {
-            return p + "<li><a href=\"" + urlize(m) + "\">" + m + "</a></li>";
+           linkstr += (!Array.isArray(links[i][1])) ? ("<li class=\"draggable\"><a href=\"" + urlize(links[i][1]) + "\">" + links[i][0].cap() + "</a></li>") : (links[i][1].length != 1) ? "<li class=\"dropdown draggable \" >" + links[i][0] + "<ul style=\"display:none\">" + [""].concat(links[i][1]).reduce(function (p, m) {
+            return p + "<li ><a href=\"" + urlize(m) + "\">" + m + "</a></li>";
         }) + "</ul></li>" : "<br/>unparsable array:</br>>></br>" + ">> " + links[i] + "<br/>>> ";
     }
       linkstr+=("</ul></p></div>");
@@ -64,6 +76,8 @@
 }, function() {
    $('ul', $(this)).hide('slow');
 });
+
+$(function(){ $( ".draggable").draggable();});
   </script>
   </head>
   <body>
