@@ -107,35 +107,56 @@ h1{
           justify-content : center;
 }
   
- 
-  
-  
+.user {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.jeff {
+  background-image: url('https://pbs.twimg.com/profile_images/3035462782/fedfa51a0f99f31b935798ebb48a5ed3.png');
+}
+
+.chris {
+  background-image: url('https://pbs.twimg.com/profile_images/547558617642045440/zVFRNaG_.jpeg');
+}
+
 </style>
 
-<div id="parent" class="row vertical-center">
-<center>
-<div id='containClock' class="center-block">
-<h1>UIST</h1>
-<div id="clockdiv">
-  <div>
-    <span class="days"></span>
-    <div class="smalltext">Days</div>
-  </div>
-  <div>
-    <span class="hours"></span>
-    <div class="smalltext">Hours</div>
-  </div>
-  <div>
-    <span class="minutes"></span>
-    <div class="smalltext">Minutes</div>
-  </div>
-  <div>
-    <span class="seconds"></span>
-    <div class="smalltext">Seconds</div>
-  </div>
-</div>
-</div>
-</center>
+<div id="parent" class="vertical-center">
+  <center>
+    <div class="row">
+      <div id='containClock' class="center-block">
+      <h1>UIST</h1>
+        <div id="clockdiv">
+          <div>
+            <span class="days"></span>
+            <div class="smalltext">Days</div>
+          </div>
+          <div>
+            <span class="hours"></span>
+            <div class="smalltext">Hours</div>
+          </div>
+          <div>
+            <span class="minutes"></span>
+            <div class="smalltext">Minutes</div>
+          </div>
+          <div>
+            <span class="seconds"></span>
+            <div class="smalltext">Seconds</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="user jeff"></div>
+      <div class="user chris"></div>
+    </div>
+  </center>
 </div>
 
 
