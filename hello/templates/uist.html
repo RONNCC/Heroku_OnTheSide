@@ -130,38 +130,41 @@ h1{
 
 </style>
 
-<div id="parent" class="vertical-center">
-  <center>
-    <div class="row">
-      <div id='containClock' class="center-block">
-      <h1>UIST</h1>
-        <div id="clockdiv">
-          <div>
-            <span class="days"></span>
-            <div class="smalltext">Days</div>
-          </div>
-          <div>
-            <span class="hours"></span>
-            <div class="smalltext">Hours</div>
-          </div>
-          <div>
-            <span class="minutes"></span>
-            <div class="smalltext">Minutes</div>
-          </div>
-          <div>
-            <span class="seconds"></span>
-            <div class="smalltext">Seconds</div>
+<div class="container">
+      <div class="row justify-content-md-center">
+        <div id='containClock' class="center-block">
+        <h1>UIST</h1>
+          <div id="clockdiv">
+            <div>
+              <span class="days"></span>
+              <div class="smalltext">Days</div>
+            </div>
+            <div>
+              <span class="hours"></span>
+              <div class="smalltext">Hours</div>
+            </div>
+            <div>
+              <span class="minutes"></span>
+              <div class="smalltext">Minutes</div>
+            </div>
+            <div>
+              <span class="seconds"></span>
+              <div class="smalltext">Seconds</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row" style="margin-top:25px;">
-      <div class="user jeff animated infinite pulse"></div>
-      <div class="user chris animated infinite pulse"></div>
-    </div>
-  </center>
+      <div class="row" style="margin-top:25px;">
+        <div class="col">&nbsp;</div>
+        <div class="col-6">
+          <div class="user jeff animated infinite pulse"></div>
+        </div>
+        <div class="col-6">
+          <div class="user chris animated infinite pulse"></div>
+        </div>
+        <div class="col">&nbsp;</div>
+      </div>
 </div>
-
 
 <script>
  function getTimeRemaining(endtime) {
