@@ -7,3 +7,5 @@ def uist(request):
     # return HttpResponse('Hello from Python!')
     return render(request, 'uist.html')
 
+def aug14(request):
+    return render(request, 'aug14.html')
