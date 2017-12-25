@@ -33,6 +33,11 @@ def dinosaur():
 def uist():
 	return render_template('uist.html')
 
+@app.route('/aug14')
+def uist():
+	return render_template('aug14.html')
+
+
 @app.route('/links')
 def links():
 	return render_template('links.html')

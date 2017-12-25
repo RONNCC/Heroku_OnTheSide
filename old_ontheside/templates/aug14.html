@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+  <head>
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <meta name="apple-mobile-web-app-title" content="Full Screen">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0, user-scalable=yes, minimal-ui,shrink-to-fit=no">
+
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment-with-locales.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+  </head>
+
+  <style>
+
+@-webkit-keyframes cpulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.15, 1.15, 1.15);
+    transform: scale3d(1.15, 1.15, 1.15);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes cpulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.15, 1.15, 1.15);
+    transform: scale3d(1.15, 1.15, 1.15);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.cpulse {
+  -webkit-animation-name: cpulse;
+  animation-name: cpulse;
+}
+
+    
+    html, body {
+    height: 100%;
+  }
+
+    body{
+      text-align: center;
+      background: #00ECB9;
+    font-family: sans-serif;
+    font-weight: 100;
+  }
+
+  h1{
+    color: #396;
+    font-weight: 100;
+    font-size: 40px;
+    margin: 40px 0px 20px;
+  }
+
+  #clockdiv{
+      font-family: sans-serif;
+      color: #fff;
+      display: inline-block;
+      font-weight: 100;
+      text-align: center;
+      font-size: 30px;
+  }
+
+  #clockdiv > div{
+      padding: 10px;
+      border-radius: 3px;
+      background: #00BF96;
+      display: inline-block;
+  }
+
+  #clockdiv div > span{
+      padding: 15px;
+      border-radius: 3px;
+      background: #00816A;
+      display: inline-block;
+  }
+
+    .days,.hours,.minutes,.seconds{
+
+      font-size:96px;
+    }
+
+  .smalltext{
+      padding-top: 5px;
+      font-size: 16px;
+  }
+
+  .vertical-center {
+    min-height: 100%;  /* Fallback for vh unit */
+    min-height: 100vh; /* You might also want to use
+                          'height' property instead.
+
+                          Note that for percentage values of
+                          'height' or 'min-height' properties,
+                          the 'height' of the parent element
+                          should be specified explicitly.
+
+                          In this case the parent of '.vertical-center'
+                          is the <body> element */
+
+    /* Make it a flex container */
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex; 
+
+    /* Align the bootstrap's container vertically */
+      -webkit-box-align : center;
+    -webkit-align-items : center;
+         -moz-box-align : center;
+         -ms-flex-align : center;
+            align-items : center;
+
+    /* In legacy web browsers such as Firefox 9
+       we need to specify the width of the flex container */
+    width: 100%;
+
+    /* Also 'margin: 0 auto' doesn't have any effect on flex items in such web browsers
+       hence the bootstrap's container won't be aligned to the center anymore.
+
+       Therefore, we should use the following declarations to get it centered again */
+           -webkit-box-pack : center;
+              -moz-box-pack : center;
+              -ms-flex-pack : center;
+    -webkit-justify-content : center;
+            justify-content : center;
+  }
+
+  .user {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .jeff {
+    background-image: url('https://pbs.twimg.com/profile_images/3035462782/fedfa51a0f99f31b935798ebb48a5ed3.png');
+  }
+
+  .chris {
+    background-image: url('https://pbs.twimg.com/profile_images/547558617642045440/zVFRNaG_.jpeg');
+  }
+
+  </style>
+
+  <body>
+
+  <div class="container">
+        <div class="row justify-content-md-center">
+          <div id='containClock' class="center-block">
+          <h1>UIST</h1>
+            <div id="clockdiv">
+              <div>
+                <span class="days"></span>
+                <div class="smalltext">Days</div>
+              </div>
+              <div>
+                <span class="hours"></span>
+                <div class="smalltext">Hours</div>
+              </div>
+              <div>
+                <span class="minutes"></span>
+                <div class="smalltext">Minutes</div>
+              </div>
+              <div>
+                <span class="seconds"></span>
+                <div class="smalltext">Seconds</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!--
+        <div class="row" style="margin-top:25px;display:inline-block;">
+          <div class="col-sm-2" style="display:inline-block;">&nbsp;</div>
+          <div class="col-md-3" style="display:inline-block;">
+            <div class="user jeff animated infinite cpulse"></div>
+          </div>
+          <div class="col-sm-2" style="display:inline-block;">&nbsp;</div>
+          <div class="col-md-3" style="display:inline-block;">
+            <div class="user chris animated infinite cpulse"></div>
+          </div>
+          <div class="col-md-4" style="display:inline-block;">&nbsp;</div>
+          <div class="col-sm-2" style="display:inline-block;">&nbsp;</div>
+        </div>
+        -->
+        
+  </div>
+
+  <script>
+   function getTimeRemaining(endtime) {
+
+    var event = moment.utc("2017-04-04T22:00:00",moment.ISO_8601)
+    var duration = moment.duration(event.diff(moment()));
+    var t = duration;
+    var days = duration.days();
+    var hours = duration.hours();
+    var minutes = duration.minutes();
+    var seconds = duration.seconds();
+    return {
+      'total': t,
+      'days': days,
+      'hours': hours,
+      'minutes': minutes,
+      'seconds': seconds
+    };
+  }
+
+  function initializeClock(id, endtime) {
+    var clock = document.getElementById(id);
+    var daysSpan = clock.querySelector('.days');
+    var hoursSpan = clock.querySelector('.hours');
+    var minutesSpan = clock.querySelector('.minutes');
+    var secondsSpan = clock.querySelector('.seconds');
+
+    function updateClock() {
+      var t = getTimeRemaining(endtime);
+
+      daysSpan.innerHTML = t.days;
+      hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+      minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+      secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+      if (t.total <= 0) {
+        clearInterval(timeinterval);
+      }
+    }
+
+    updateClock();
+    var timeinterval = setInterval(updateClock, 1000);
+  }
+
+  var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
+  initializeClock('clockdiv', deadline);
+
+  </script>
+  </body>
+</html>
