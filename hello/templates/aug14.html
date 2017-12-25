@@ -222,7 +222,7 @@
     var event = moment.utc("2018-08-14T22:00:00",moment.ISO_8601)
     var duration = moment.duration(event.diff(moment()));
     var t = duration;
-    var days = duration.days();
+    var days = moment().diff(event,'days');
     var hours = duration.hours();
     var minutes = duration.minutes();
     var seconds = duration.seconds();
