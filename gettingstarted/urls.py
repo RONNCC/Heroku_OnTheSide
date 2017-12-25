@@ -12,5 +12,7 @@ import hello.views
 
 urlpatterns = [
     url(r'^uist', hello.views.uist, name='uist'),
+    url(r'^aug14', hello.views.aug14, name='aug14'),
+
 ]
 
