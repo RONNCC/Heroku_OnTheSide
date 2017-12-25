@@ -34,7 +34,7 @@ def uist():
 	return render_template('uist.html')
 
 @app.route('/aug14')
-def uist():
+def aug14():
 	return render_template('aug14.html')
 
 
