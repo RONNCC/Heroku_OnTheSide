@@ -217,9 +217,9 @@
   </div>
 
   <script>
-   function getTimeRemaining(endtime) {
+   function getTimeRemaining() {
 
-    var event = moment.utc("2017-04-04T22:00:00",moment.ISO_8601)
+    var event = moment.utc("2018-08-14T22:00:00",moment.ISO_8601)
     var duration = moment.duration(event.diff(moment()));
     var t = duration;
     var days = duration.days();
@@ -235,7 +235,7 @@
     };
   }
 
-  function initializeClock(id, endtime) {
+  function initializeClock(id) {
     var clock = document.getElementById(id);
     var daysSpan = clock.querySelector('.days');
     var hoursSpan = clock.querySelector('.hours');
@@ -243,7 +243,7 @@
     var secondsSpan = clock.querySelector('.seconds');
 
     function updateClock() {
-      var t = getTimeRemaining(endtime);
+      var t = getTimeRemaining();
 
       daysSpan.innerHTML = t.days;
       hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
@@ -259,8 +259,7 @@
     var timeinterval = setInterval(updateClock, 1000);
   }
 
-  var deadline = new Date(Date.parse('August 14,2018'));
-  initializeClock('clockdiv', deadline);
+  initializeClock('clockdiv');
 
   </script>
   </body>
